@@ -1,0 +1,17 @@
+{
+  "name": "No13",
+  "version": "1.0.0",
+  "description": "No13",
+  "author": "@baturinsky",
+  "type": "module",
+  "scripts": {
+    "start": "concurrently --kill-others \"esbuild src/prog.ts --bundle --outfile=public/bundle.js --watch\" \"http-server -p 5000 public\"",
+    "build": "esbuild src/prog.ts --bundle --outfile=public/minified.js --minify && regpack public/minified.js > distr/packed.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
